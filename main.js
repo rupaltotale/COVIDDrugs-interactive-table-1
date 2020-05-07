@@ -25,9 +25,9 @@ function display(json)
         autoColumns:true,
     });
 
+    // Add header filter to all columns
     let columns = table.getColumnDefinitions();
 
-    // basic code to adapt to your need
     columns.forEach(column => {
         column.headerFilter = true;
     });
