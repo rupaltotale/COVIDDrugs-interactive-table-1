@@ -9,7 +9,7 @@
 
 // xhr.send();
 
-let url  ='https://docs.google.com/spreadsheets/d/e/2PACX-1vRB8GpRwi3-e3VjPx8z3IXRRf6O6Z2lfhIWF9OfmH1VeD-QAALEJOlCLrreqCYmqxwfn3wWpBrZNM8l/pub?gid=0&single=true&output=csv';
+let url  ='https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vRB8GpRwi3-e3VjPx8z3IXRRf6O6Z2lfhIWF9OfmH1VeD-QAALEJOlCLrreqCYmqxwfn3wWpBrZNM8l/pub?gid=0&single=true&output=csv';
 
 fetch(url)
   .then(response => response.text())
