@@ -36,6 +36,11 @@ function display(json)
 
     columns.forEach(column => {
         column.headerFilter = true;
+        if(column.title == "Title")
+        {
+            column.width = 200;
+            column.frozen = true;
+        }
     });
 
     table.setColumns(columns);
