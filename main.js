@@ -36,6 +36,7 @@ function display(json)
 
     columns.forEach(column => {
         column.headerFilter = true;
+        column.tooltip = true;
         if(column.title == "Title")
         {
             column.width = 200;
