@@ -1,13 +1,19 @@
-let xhr = new XMLHttpRequest();
-let url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRB8GpRwi3-e3VjPx8z3IXRRf6O6Z2lfhIWF9OfmH1VeD-QAALEJOlCLrreqCYmqxwfn3wWpBrZNM8l/pub?gid=0&single=true&output=csv";
-xhr.open("GET", url);
-xhr.responseType = "text";
+// let xhr = new XMLHttpRequest();
+// let url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRB8GpRwi3-e3VjPx8z3IXRRf6O6Z2lfhIWF9OfmH1VeD-QAALEJOlCLrreqCYmqxwfn3wWpBrZNM8l/pub?gid=0&single=true&output=csv";
+// xhr.open("GET", url);
+// xhr.responseType = "text";
 
-xhr.onload = function () {
-    convert(this.responseText);
-};
+// xhr.onload = function () {
+//     convert(this.responseText);
+// };
 
-xhr.send();
+// xhr.send();
+
+let url  ='https://docs.google.com/spreadsheets/d/e/2PACX-1vRB8GpRwi3-e3VjPx8z3IXRRf6O6Z2lfhIWF9OfmH1VeD-QAALEJOlCLrreqCYmqxwfn3wWpBrZNM8l/pub?gid=0&single=true&output=csv';
+
+fetch(url)
+  .then(response => response.text())
+  .then(data => convert(data));
 
 function convert(data)
 {
