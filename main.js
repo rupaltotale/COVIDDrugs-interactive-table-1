@@ -24,6 +24,8 @@ function convert(data)
 
 function display(json)
 {
+    let loader = document.getElementById("circle");
+    loader.remove();
     //create Tabulator on DOM element with id "table"
     let table = new Tabulator("#table", {
         height:720,
@@ -37,9 +39,10 @@ function display(json)
     columns.forEach(column => {
         column.headerFilter = true;
         column.tooltip = true;
+        column.width = '10%';
+
         if(column.title == "Title")
         {
-            column.width = 200;
             column.frozen = true;
         }
     });
