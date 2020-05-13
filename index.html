@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="dist/css/tabulator.min.css" rel="stylesheet">
-        <link href="stylesheet.css" rel="stylesheet">
-    </head>
-    <body>
-        <div id="circle" class="loader"></div>
-        <div id="table" class="data"></div>
-        <script src="main.js"></script>
-        <script src="papaparse.min.js"></script>
-        <script type="text/javascript" src="dist/js/tabulator.min.js"></script>
-    </body>
+  <head>
+    <link href="dist/css/tabulator.min.css" rel="stylesheet" />
+    <link href="stylesheet.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="circle" class="loader"></div>
+    <div id="table" class="data"></div>
+    <!-- <script src="main.js"></script> -->
+
+    <script
+      async
+      defer
+      src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()"
+    ></script>
+    <script src="sheets.js"></script>
+    <script src="papaparse.min.js"></script>
+    <script type="text/javascript" src="dist/js/tabulator.min.js"></script>
+  </body>
 </html>
