@@ -81,7 +81,8 @@ function display(data) {
   if (loader !== null) loader.remove();
   //create Tabulator on DOM element with id "table"
   let table = new Tabulator("#table", {
-    height: window.innerHeight - 20,
+    // height: window.innerHeight - 20,
+    height: "100%",
     data: data, //assign data to table
     autoColumns: true,
   });
