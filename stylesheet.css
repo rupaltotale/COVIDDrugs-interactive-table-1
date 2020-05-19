@@ -30,7 +30,7 @@
     transition: 0.4s;
   }
   
-  #applyFilter {
+  .bouton {
     background-color: #e7e7e7; 
     color: black;
     border: none;

@@ -6,13 +6,16 @@
   </head>
   <body>
     <div id="circle" class="loader"></div>
-    <button class="accordion">Filters</button>
-    <div class="panel">
-      <ul id="filters" class="checkbox">
+  <button id="showFilters" class="accordion" style="display: none">Filters</button>
+    <div id="filters" class="panel">
+      <ul id="colFilters" class="checkbox">
         <br>Columns:</br>
 
       </ul>
-      <button id="applyFilter" onclick="refresh()">Apply Filters</button>
+      <button class="bouton" onclick="refresh()">Apply Filters</button>
+      <button class="bouton" onclick="check()">Check All</button>
+      <button class="bouton" onclick="uncheck()">Uncheck All</button>
+
     </div>
     <div id="table" class="data"></div>
     <!-- <script src="main.js"></script> -->

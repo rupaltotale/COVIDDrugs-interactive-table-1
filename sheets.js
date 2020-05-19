@@ -80,6 +80,8 @@ let populated = false;
 let columnNames = [];
 function display(data) {
   let loader = document.getElementById("circle");
+  let filterbut = document.getElementById("showFilters");
+  if (filterbut !== null) filterbut.style.display = "block";
   if (loader !== null) loader.remove();
   //create Tabulator on DOM element with id "table"
   table = new Tabulator("#table", {
@@ -117,7 +119,7 @@ function populateCheckBoxes(table)
 
 function addCheckBox(name)
 {
-  let filters = document.getElementById("filters");
+  let filters = document.getElementById("colFilters");
   let box = document.createElement("input");
   box.checked = true;
   box.setAttribute("type", "checkbox");
@@ -146,6 +148,24 @@ function refresh()
     }else{
       table.hideColumn(val);
     }
+  }
+}
+
+function uncheck()
+{
+  let boxes = document.getElementsByClassName("colCheck");
+  for(i = 0; i < boxes.length; i++){
+    let box = boxes[i];
+    box.checked = false;
+  }
+}
+
+function check()
+{
+  let boxes = document.getElementsByClassName("colCheck");
+  for(i = 0; i < boxes.length; i++){
+    let box = boxes[i];
+    box.checked = true;
   }
 }
 
