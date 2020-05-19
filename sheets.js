@@ -68,19 +68,21 @@ function getDataFromSheet() {
           }
           return data;
         });
-        display(tabledata);
+        display(tabledata).then(result => populateCheckBoxes(result));
       },
       function (response) {
         console.log("Error: " + response.result.error.message);
       }
     );
 }
-
+let table;
+let populated = false;
+let columnNames = [];
 function display(data) {
   let loader = document.getElementById("circle");
   if (loader !== null) loader.remove();
   //create Tabulator on DOM element with id "table"
-  let table = new Tabulator("#table", {
+  table = new Tabulator("#table", {
     // height: window.innerHeight - 20,
     height: "100%",
     data: data, //assign data to table
@@ -89,16 +91,79 @@ function display(data) {
 
   // Add header filter to all columns
   let columns = table.getColumnDefinitions();
-
   columns.forEach((column) => {
     column.headerFilter = true;
     column.tooltip = true;
     column.width = "10%";
-
     if (column.title == "Title") {
       column.frozen = true;
     }
   });
-
   table.setColumns(columns);
+  return Promise.resolve(table);
+}
+
+function populateCheckBoxes(table)
+{
+  if(!populated)
+  {
+    populated = true;
+    let columns = table.getColumnDefinitions();
+    columns.forEach((column) => {
+      addCheckBox(column.title);
+    });
+  }
+}
+
+function addCheckBox(name)
+{
+  let filters = document.getElementById("filters");
+  let box = document.createElement("input");
+  box.checked = true;
+  box.setAttribute("type", "checkbox");
+  box.setAttribute("class", "colCheck");
+  box.setAttribute("value", name);
+  let li = document.createElement("li");
+  let label = document.createElement("label");
+  label.append(box);
+  label.append(document.createTextNode(name));
+  li.append(label);
+  filters.append(li);
+  console.log("called");
+}
+
+function refresh()
+{
+  console.log("called refresh");
+  let boxes = document.getElementsByClassName("colCheck");
+  console.log(boxes);
+  for(i = 0; i < boxes.length; i++){
+    let box = boxes[i];
+    let val = box.value;
+    if(box.checked)
+    {
+      table.showColumn(val);
+    }else{
+      table.hideColumn(val);
+    }
+  }
+}
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
 }

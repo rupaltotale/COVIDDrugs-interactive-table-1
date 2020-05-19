@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="dist/css/tabulator.min.css" rel="stylesheet" />
     <link href="stylesheet.css" rel="stylesheet" />
+    <link href="dist/css/tabulator.min.css" rel="stylesheet" />
   </head>
   <body>
     <div id="circle" class="loader"></div>
+    <button class="accordion">Filters</button>
+    <div class="panel">
+      <ul id="filters" class="checkbox">
+        <br>Columns:</br>
+
+      </ul>
+      <button id="applyFilter" onclick="refresh()">Apply Filters</button>
+    </div>
     <div id="table" class="data"></div>
     <!-- <script src="main.js"></script> -->
 
