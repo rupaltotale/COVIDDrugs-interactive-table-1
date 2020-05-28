@@ -54,6 +54,7 @@
     background-color: white;
     display: none;
     overflow: hidden;
+    font-family: 'Calibri';
   }
 
   ul.checkbox  { 
