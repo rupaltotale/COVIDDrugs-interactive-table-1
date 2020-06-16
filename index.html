@@ -5,20 +5,23 @@
     <link href="dist/css/tabulator_modern.css" rel="stylesheet" />
   </head>
   <body>
+    <!-- Loading icon -->
     <div id="circle" class="loader"></div>
-  <button id="showFilters" class="accordion" style="display: none">Filters</button>
+    <!-- Filters bar -->
+    <button id="showFilters" class="accordion" style="display: none">Filters</button>
+    <!-- Filters Panel -->
     <div id="filters" class="panel">
       <ul id="colFilters" class="checkbox">
         <br>Columns:</br>
 
       </ul>
-      <button class="bouton" onclick="refresh()">Apply Filters</button>
-      <button class="bouton" onclick="check()">Check All</button>
-      <button class="bouton" onclick="uncheck()">Uncheck All</button>
+      <button class="bouton" onclick="applyFilters()">Apply Filters</button>
+      <button class="bouton" onclick="checkAll()">Check All</button>
+      <button class="bouton" onclick="uncheckAll()">Uncheck All</button>
 
     </div>
+    <!-- Table (manipulated by sheets.js) -->
     <div id="table" class="data"></div>
-    <!-- <script src="main.js"></script> -->
 
     <script
       async
@@ -27,7 +30,7 @@
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()"
     ></script>
-    <script src="sheets.js"></script>
+    <script src="main.js"></script>
     <script src="papaparse.min.js"></script>
     <script type="text/javascript" src="dist/js/tabulator.min.js"></script>
   </body>
