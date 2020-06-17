@@ -21,7 +21,11 @@ Interactive table for coviddrugs.org
 
   - Logic for pulling in data from google sheets
   - Logic for displaying table
-  - Logic for displaying a functioning filters panel
+  - Logic for displaying a functioning filters panel. The filters panel controls what columns
+    are show and what columns are not. The user can toggle open the filters panel and check or
+    uncheck column names to do this.
+  - To change the default column width, change the `column.width = x` property in main.js in
+    function `displayTable()` or do it when looking the table by moving the dividers.
 
 - [`index.html`](index.html) consists the HTML skeleton for the interactive table and filters panel
 
